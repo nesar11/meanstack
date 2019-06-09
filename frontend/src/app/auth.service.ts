@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ export class AuthService {
   private _registerUrl = "http://localhost:3001/api/register";
   private _loginUrl = "http://localhost:3001/api/login";
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient,
+                private _router : Router) { }
   registerUser(user){
     return this.http.post<any>(this._registerUrl, user)
   }
@@ -23,6 +25,14 @@ export class AuthService {
     return !!localStorage.getItem('token')
   }
   
+  getToken(){
+    return localStorage.getItem('token')
+    this._router.navigate(['/events'])
+  }
+
+  logoutUser(){
+    localStorage.removeItem('token')
+  }
   // loginUser(user): Observable<any> {
   //   return this.http.post(`${this._loginUrl}`, user)
   //     .pipe(
