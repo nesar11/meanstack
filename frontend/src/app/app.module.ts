@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LogoutComponent } from './logout/logout.component';
 
 import { FormsModule} from '@angular/forms';
+import { AuthGuard} from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { FormsModule} from '@angular/forms';
     AppRoutingModule
    
   ],
-  providers: [AuthService, EventService],
+  providers: [AuthService, AuthGuard, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
