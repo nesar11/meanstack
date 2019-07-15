@@ -15,6 +15,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { FormsModule} from '@angular/forms';
 import { AuthGuard} from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { ProductCreateComponent } from './product-create/product-create.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { TokenInterceptorService } from './token-interceptor.service';
     LoginComponent,
     EventsComponent,
     SpecialEventsComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProductsListComponent,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,
