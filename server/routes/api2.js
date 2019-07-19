@@ -4,8 +4,8 @@ const Product = require('../models/product');
 
 
 
-
-api2.get('/products', (req, res)=>{
+//localhost:3000/api2/product/read
+api2.get('/read', (req, res)=>{
     Product.find(function(err, products){
 if(err){
     console.log(err);
@@ -18,16 +18,26 @@ if(err){
 })
 
 
-
-api2.route('/add').post(function (req, res) {
-    var product = new Product(req.body);
-    product.save()
-      .then(item => {
-      res.status(200).json({success: true, result: 'product added successfully'});
-      })
-      .catch(err => {
-      res.status(400).send("unable to save to database");
+//localhost:3000/api2/product/add
+api2.post('/add', (req, res) => {
+    let productData = req.body
+    let product  = new Product(productData);
+    product.save((error, productAdded) =>{
+        if (error){
+            console.log(error)
+        } else{
+            res.status(200).send(productAdded)
+        }
+   
+    
       });
   });
 
 module.exports = api2
+
+
+
+//GET http://localhost:3000/api2/product/read
+//POST http://localhost:3000/api2/product/add
+//PUT http://localhost:3000/api2/product/update
+//DELETE http://localhost:3000/api2/product/delete

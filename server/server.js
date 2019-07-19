@@ -12,9 +12,9 @@ const cors = require('cors');
 const config = require('./config/DB');
 mongoose.Promise = global.Promise;
 
-mongoose.connect(config.DB).then(
-    () => {console.log('database is connected')},
-    err => {console.log('can not connect to the database' + err)}
+mongoose.connect(config.DB, { useNewUrlParser: true }).then(
+    () => { console.log('database is connected') },
+    err => { console.log('can not connect to the database' + err) }
 );
 
 
@@ -28,13 +28,14 @@ app.use(cors());
 app.use('/api', api)
 app.use('/api2', api2)
 
-// app.use('/api/resgister', api)
-// app.use('/api2/product', api2)
+app.use('/api/resgister', api)
+app.use('/api2/product', api2)
 
 
-app.get ('/', function(req, res){
+
+app.get('/', function (req, res) {
     res.send('Hellow from server')
 });
- app.listen(PORT, function(){
-     console.log('server running on Localhost' + PORT)
- });
+app.listen(PORT, function () {
+    console.log('server running on Localhost' + PORT)
+});
