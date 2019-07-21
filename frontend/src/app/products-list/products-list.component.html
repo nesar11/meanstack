@@ -13,8 +13,12 @@
         <a href="#" class="btn btn-primary">Buy Tickets</a>
       </div>
       <div class="card-footer text-muted">
-        {{product.date | date:'shortDate'}}
+        {{product.createdAt | date:'shortDate'}} 
+        <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-edit"></span> Edit
+        </a>
       </div>
     </div>
   </div>
 </div>
+

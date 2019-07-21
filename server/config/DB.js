@@ -1,3 +1,3 @@
 module.exports = {
-    DB:'mongodb://localhost:27017/meansys'
+    DB:'mongodb://localhost:27017/myshop'
 };

@@ -5,17 +5,33 @@ const Product = require('../models/product');
 
 
 //localhost:3000/api2/product/read
-api2.get('/read', (req, res)=>{
-    Product.find(function(err, products){
-if(err){
-    console.log(err);
+// api2.get('/read', (req, res)=>{
+//     Product.find(function(err, products){
+// if(err){
+//     console.log(err);
 
-}else{
-    res.json(products);
-}
+// }else{
+//     res.json(products);
+// }
+//     }).sort({productName: 1, updatedAt:1})
+//     /* 1 is for ascending and -1 is for decending  */
+// })
+
+api2.get('/read', (req, res)=>{
+    let options = { 
+        page: 1, 
+        limit: 10,
+        sort: { productName: 1 }
+     }
+    Product.paginate({}, options, function(err, products) {
+        if(err){
+            console.log(err);
+        } else {
+            res.json(products);
+        }
     })
-    
 })
+
 
 
 //localhost:3000/api2/product/add

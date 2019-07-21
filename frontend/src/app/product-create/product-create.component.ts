@@ -28,7 +28,7 @@ export class ProductCreateComponent implements OnInit {
         res => {
           console.log(res)
 
-          this._router.navigate(['/special'])
+          this._router.navigate(['/products'])
         },
         err => console.log(err)
       )
