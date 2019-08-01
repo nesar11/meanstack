@@ -19,8 +19,8 @@ const Product = require('../models/product');
 
 api2.get('/read', (req, res)=>{
     let options = { 
-        page: 1, 
-        limit: 10,
+        page: req.query.pageIndex, 
+        limit: req.query.limit,
         sort: { productName: 1 }
      }
     Product.paginate({}, options, function(err, products) {
