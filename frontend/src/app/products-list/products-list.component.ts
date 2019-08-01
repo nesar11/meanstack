@@ -10,17 +10,50 @@ import { Product } from '../models/Product';
 export class ProductsListComponent implements OnInit {
 
   products: Product[] = []
-
+  currentIndex: number;
   constructor(private _productService: ProductService) { }
 
   ngOnInit() {
-    this._productService.getProducts()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.products = res
-        },
-        err => console.log(err)
-      )
+    this.currentIndex = 1;
+    this.getProduct(1, 9);
+    // this._productService.getProducts(1, 10)
+    //   .subscribe(
+    //     res => {
+    //       this.products = res.docs;
+    //       console.log(res,this.products);
+          
+    //     },
+    //     err => console.log(err)
+    //   )
+  }
+
+  getProduct(page, limit) {
+    this._productService.getProducts(page, limit)
+    .subscribe(
+      res => {
+        this.products = res.docs;
+        console.log(res,this.products);
+        
+      },
+      err => console.log(err)
+    )
+  }
+
+  nextPage() {
+    this.currentIndex ++;
+    this.getProduct(this.currentIndex, 10);
+  }
+
+  getPage(num) {
+    this.getProduct(num, 10);
+  }
+
+  previousPage() {
+    if (this.currentIndex > 1) {
+      this.currentIndex --;
+      this.getProduct(this.currentIndex, 10);
+    }
+ 
   }
 }
+
