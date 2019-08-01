@@ -19,8 +19,8 @@ export class ProductService {
   constructor(private http: HttpClient,
     private _router: Router) { }
 
-  getProducts() {
-    return this.http.get<any>(this._productUrl + '/read')
+  getProducts(pageIndex, limit) {
+    return this.http.get<any>(this._productUrl + '/read' + `?pageIndex=${pageIndex}&limit=${limit}`)
   }
 
   addProduct(product) {
