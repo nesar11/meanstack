@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
+import { UserListComponent } from './user-list/user-list.component';
+
 
 const routes: Routes = [
   {
@@ -33,6 +35,11 @@ const routes: Routes = [
     path: 'addProduct',
     canActivate: [AuthGuard],
     component: ProductCreateComponent
+  },
+  {
+    path: 'userlist',
+    canActivate: [AuthGuard],
+    component: UserListComponent
   },
   {
     path: 'register',

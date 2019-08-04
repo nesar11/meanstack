@@ -49,6 +49,19 @@ api2.post('/add', (req, res) => {
       });
   });
 
+
+api2.get('/edit/:id', (req, res) => {
+    let id = req.params.id;
+    product.findById(id, function (err, products){
+        res.json(products);
+    });
+
+});
+
+
+
+
+
 module.exports = api2
 
 

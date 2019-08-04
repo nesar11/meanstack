@@ -41,17 +41,17 @@ export class ProductsListComponent implements OnInit {
 
   nextPage() {
     this.currentIndex ++;
-    this.getProduct(this.currentIndex, 10);
+    this.getProduct(this.currentIndex, 9);
   }
 
   getPage(num) {
-    this.getProduct(num, 10);
+    this.getProduct(num, 9);
   }
 
   previousPage() {
     if (this.currentIndex > 1) {
       this.currentIndex --;
-      this.getProduct(this.currentIndex, 10);
+      this.getProduct(this.currentIndex, 9);
     }
  
   }

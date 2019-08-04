@@ -33,23 +33,4 @@ export class AuthService {
   logoutUser(){
     localStorage.removeItem('token')
   }
-  // loginUser(user): Observable<any> {
-  //   return this.http.post(`${this._loginUrl}`, user)
-  //     .pipe(
-  //       tap(result => {
-  //         console.log('login():', result);
-  //       }),
-  //       catchError(this.handleError('login()'))
-  //     );
-  // }
-
-  
-  // private handleError<T>(operation = 'operation', result?: T) {
-  //   return (error: any): Observable<T> => {
-  //     console.error(error);
-  //     console.log(`${operation} failed: ${error.message}`);
-
-  //     return of(result as T);
-  //   };
-  // }
 }

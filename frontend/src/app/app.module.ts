@@ -17,6 +17,7 @@ import { AuthGuard} from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductCreateComponent } from './product-create/product-create.componen
     SpecialEventsComponent,
     LogoutComponent,
     ProductsListComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
