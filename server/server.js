@@ -22,14 +22,17 @@ var app = express();
 
 const api = require('./routes/api')
 const api2 = require('./routes/api2')
+const blogRoute = require('./routes/blogRoute')
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', api)
 app.use('/api2', api2)
+app.use('/blogRoute', blogRoute)
 
-app.use('/api/resgister', api)
-app.use('/api2/product', api2)
+// app.use('/api/resgister', api)
+// app.use('/api2/product', api2)
+// app.use('/api2/blogRoute', blogRoute)
 
 
 
